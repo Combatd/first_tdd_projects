@@ -41,4 +41,16 @@ class Array
         transposed_array
     end
 
+    def stock_picker 
+        profitable_days = {}
+        self.each_index do |idx1|
+            (idx1 + 1..self.length-1).each do |idx2|
+                next if self[idx2] < self[idx1] 
+                profitable_days[[idx1+1, idx2+1]] = self[idx2]-self[idx1]
+            end
+        end
+    profitable_days.key(profitable_days.values.max)
+  end
+
+
 end
