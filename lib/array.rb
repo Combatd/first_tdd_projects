@@ -10,4 +10,8 @@ class Array
         unique_arr
     end
 
+    def two_sum
+        
+    end
+
 end
