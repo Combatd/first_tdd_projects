@@ -47,5 +47,20 @@ describe Array do
     end
 
   end
+  
+  describe "#stock_picker" do
+      let(:sellable_stock) { [1, 3, 4, 5, 6, 7] }
+      let(:not_sell_stock) { [1, 3, 4, 6, 7] }
+      context "when profitable days exist" do
+          it "returns the most profitable pair of days on which to first buy stock then sell it" do
+              expect(sellable_stock.stock_picker).to eq([2, 5])
+          end
+      end
+      context "when there is no good day to buy then wait to sell" do
+          it "returns nil" do
+              expect(not_sell_stock.stock_picker).to be_nil
+          end
+      end
+  end
 
 end
