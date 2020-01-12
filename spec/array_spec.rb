@@ -29,7 +29,7 @@ describe Array do
     end
 
     it "returns pairs by smaller index first" do
-        expect(array.to_sum).not_to eq([2, 3], [0, 4])
+        expect(array.two_sum).not_to eq([[2, 3], [0, 4]])
     end
 
   end

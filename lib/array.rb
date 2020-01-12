@@ -11,7 +11,23 @@ class Array
     end
 
     def two_sum
-        
+        two_sum_arr = []
+        self.each_with_index do |ele, i|
+          temp_arr = []
+          self.each_with_index do |sub_ele, j|
+            if ele + sub_ele === 0
+                temp_arr << i
+                temp_arr << j
+                temp_arr.sort
+            end
+
+            if temp_arr.length != 0 && temp_arr.first != temp_arr[-1]
+                two_sum_arr << temp_arr.sort 
+            end
+
+          end
+        end
+        two_sum_arr.my_uniq
     end
 
 end
