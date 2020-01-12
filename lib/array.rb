@@ -30,4 +30,15 @@ class Array
         two_sum_arr.my_uniq
     end
 
+    def my_transpose
+        transposed_array = []
+        self.each_with_index do |sub_arr, idx|
+            transposed_array[idx] = []
+            sub_arr.each_with_index do |ele, j|
+                transposed_array[idx] << self[j][idx]
+            end
+        end
+        transposed_array
+    end
+
 end
