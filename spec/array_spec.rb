@@ -36,10 +36,14 @@ describe Array do
 
   describe "#my_transpose" do
       let(:rows){[ [0, 1, 2], [3, 4, 5], [6, 7, 8] ]}
-      let(:cols){[ [9, 3, 6], [1, 4, 7], [2, 5, 8] ]}
+      let(:cols){[ [0, 3, 6], [1, 4, 7], [2, 5, 8] ]}
     
     it "returns a two dimensional array" do
         expect(rows.my_transpose.all?{|sub_arr| sub_arr.instance_of?(Array)}).to eq(true)
+    end
+
+    it "returns the rows reoriented as columns and columns reoriented as rows" do
+        expect(rows.my_transpose).to eq(cols)
     end
 
   end
