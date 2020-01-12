@@ -43,15 +43,16 @@ class Array
 
     def stock_picker 
         profitable_days = {}
-        self.each_index do |idx1|
+        self.each_index do |i|
             # we compare with succeeding days
-            (idx1 + 1...self.length).each do |idx2|
+            (i + 1...self.length).each do |j|
                 # can't sell a stock before purchase
-                next if self[idx2] < self[idx1] 
+                next if self[j] < self[i] 
                 # reassign each key to those elements
-                profitable_days[[idx1+1, idx2+1]] = self[idx2]-self[idx1]
+                profitable_days[[i + 1, j + 1]] = self[j]-self[i]
             end
         end
+        # return the largest key value pair
     profitable_days.key(profitable_days.values.max)
   end
 
