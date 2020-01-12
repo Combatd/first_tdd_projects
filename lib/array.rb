@@ -44,8 +44,11 @@ class Array
     def stock_picker 
         profitable_days = {}
         self.each_index do |idx1|
-            (idx1 + 1..self.length-1).each do |idx2|
+            # we compare with succeeding days
+            (idx1 + 1...self.length).each do |idx2|
+                # can't sell a stock before purchase
                 next if self[idx2] < self[idx1] 
+                # reassign each key to those elements
                 profitable_days[[idx1+1, idx2+1]] = self[idx2]-self[idx1]
             end
         end
